@@ -1,0 +1,8 @@
+SELECT *
+FROM public.submit_leave_request(
+    'EMP001',
+    {{Number(selLeaveType.selectedOptionValue)}}::BIGINT,
+    {{moment(dpStartDate.selectedDate).format("YYYY-MM-DD")}}::DATE,
+    {{moment(dpEndDate.selectedDate).format("YYYY-MM-DD")}}::DATE,
+    {{txtLeaveReason.text}}
+);

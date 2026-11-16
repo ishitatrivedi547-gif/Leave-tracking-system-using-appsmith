@@ -1,0 +1,7 @@
+DELETE FROM public.holidays
+WHERE holiday_id =
+    {{Number(selEditHoliday.selectedOptionValue)}}::BIGINT
+RETURNING
+    holiday_id,
+    holiday_name,
+    holiday_date;

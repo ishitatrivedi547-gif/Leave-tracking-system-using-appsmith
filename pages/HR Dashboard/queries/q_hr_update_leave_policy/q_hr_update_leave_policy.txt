@@ -1,0 +1,32 @@
+UPDATE public.leave_policies
+SET
+    entitlement_days =
+        {{Number(inpPolicyEntitlement.text)}}::INTEGER,
+
+    carry_forward_limit =
+        {{Number(inpPolicyCarryForward.text)}}::INTEGER,
+
+    requires_document_after_days =
+        {{inpPolicyDocumentAfter.text
+            ? Number(inpPolicyDocumentAfter.text)
+            : null}}::INTEGER,
+
+    max_consecutive_days =
+        {{inpPolicyMaxConsecutive.text
+            ? Number(inpPolicyMaxConsecutive.text)
+            : null}}::INTEGER,
+
+    effective_from =
+    {{moment(dpPolicyEffectiveFrom.selectedDate).format("YYYY-MM-DD")}}::DATE,
+
+    effective_to =
+    {{dpPolicyEffectiveTo.selectedDate
+        ? moment(dpPolicyEffectiveTo.selectedDate).format("YYYY-MM-DD")
+        : null}}::DATE,
+
+    active = {{chkPolicyActive.isChecked}}
+
+WHERE policy_id =
+    {{Number(selHRLeavePolicy.selectedOptionValue)}}::BIGINT
+
+RETURNING *;

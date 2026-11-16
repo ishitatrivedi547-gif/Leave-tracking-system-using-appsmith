@@ -1,0 +1,15 @@
+SELECT
+    n.notification_id,
+    e.employee_code,
+    e.full_name AS employee_name,
+    n.request_id,
+    n.channel,
+    n.subject,
+    n.message,
+    n.status,
+    n.sent_at,
+    n.created_at
+FROM public.notifications n
+JOIN public.employees e
+    ON e.employee_id = n.employee_id
+ORDER BY n.created_at DESC;

@@ -1,0 +1,54 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 43,
+  "boxShadow": "none",
+  "buttonColor": "#b91c1c",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "3y7wtb03oh",
+  "leftColumn": 13,
+  "minWidth": 120,
+  "mobileBottomRow": 43,
+  "mobileLeftColumn": 13,
+  "mobileRightColumn": 29,
+  "mobileTopRow": 39,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  !selEditEmployee.selectedOptionValue\n    ? showAlert(\"Please select an employee first.\", \"warning\")\n    : q_hr_deactivate_employee.run()\n        .then(data => {\n          if (!data || data.length === 0) {\n            showAlert(\n              \"Employee was not deactivated. They may already be inactive or have pending leave requests.\",\n              \"warning\"\n            );\n            return;\n          }\n\n          showAlert(\"Employee deactivated successfully.\", \"success\");\n\n          return Promise.all([\n            q_hr_get_employees.run(),\n            q_hr_get_employees_for_edit.run(),\n            q_hr_get_employee_by_id.run(),\n            q_hr_get_leave_balances.run()\n          ]);\n        })\n        .catch(error => {\n          showAlert(error.message || \"Unable to deactivate employee.\", \"error\");\n        })\n}}",
+  "originalBottomRow": 46,
+  "originalTopRow": 42,
+  "parentColumnSpace": 13.921875,
+  "parentId": "iwpsik39zk",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 29,
+  "text": "Deactivate Employee",
+  "topRow": 39,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "05p0lvtu39",
+  "widgetName": "btnDeactivateEmployee"
+}

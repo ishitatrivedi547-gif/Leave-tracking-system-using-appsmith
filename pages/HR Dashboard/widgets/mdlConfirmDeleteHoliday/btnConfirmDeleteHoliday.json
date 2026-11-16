@@ -1,0 +1,51 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 24,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "oevkr4a9qm",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{q_hr_delete_holiday.run();\nq_hr_get_holidays.run().catch(() => {});\nq_hr_get_holidays_for_edit.run();\nshowAlert('Holiday deleted successfully!', 'success');\nresetWidget(\"selEditHoliday\", true);\nresetWidget(\"inpEditHolidayName\", true);\nresetWidget(\"dpEditHolidayDate\", true);\nresetWidget(\"inpEditHolidayDescription\", true);\ncloseModal(mdlConfirmDeleteHoliday.name);}}",
+  "originalBottomRow": 22,
+  "originalTopRow": 18,
+  "parentId": "xc4taf9ffs",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Yes,Delete",
+  "topRow": 20,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "sxm6q66iv2",
+  "widgetName": "btnConfirmDeleteHoliday"
+}

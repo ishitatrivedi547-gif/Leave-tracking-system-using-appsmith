@@ -1,0 +1,6 @@
+SELECT
+    leave_type_id,
+    leave_type_name
+FROM public.leave_types
+WHERE active = TRUE
+ORDER BY leave_type_name;

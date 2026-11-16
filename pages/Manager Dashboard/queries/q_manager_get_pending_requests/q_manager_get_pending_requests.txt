@@ -1,0 +1,25 @@
+SELECT
+    lr.request_id,
+    e.employee_code,
+    e.full_name AS employee_name,
+    e.department,
+    e.designation,
+    lt.leave_type_name,
+    lr.start_date,
+    lr.end_date,
+    lr.requested_days,
+    lr.reason,
+    lr.status,
+    lr.submitted_at
+FROM public.leave_requests lr
+JOIN public.employees e
+    ON e.employee_id = lr.employee_id
+JOIN public.leave_types lt
+    ON lt.leave_type_id = lr.leave_type_id
+WHERE e.manager_id = (
+    SELECT employee_id
+    FROM public.employees
+    WHERE employee_code = 'MGR001'
+)
+AND lr.status = 'Pending'
+ORDER BY lr.submitted_at DESC;

@@ -1,0 +1,7 @@
+SELECT *
+FROM public.manager_decide_leave_request(
+    'MGR001',
+    {{Number(tblManagerPendingRequests.selectedRow.request_id)}}::BIGINT,
+    'Approved',
+    {{txtManagerComment.text || ''}}
+);

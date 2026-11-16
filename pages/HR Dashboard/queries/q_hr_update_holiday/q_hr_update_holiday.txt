@@ -1,0 +1,12 @@
+UPDATE public.holidays
+SET
+    holiday_name = {{inpEditHolidayName.text}},
+    holiday_date = {{moment(dpEditHolidayDate.selectedDate).format("YYYY-MM-DD")}}::DATE,
+    description = {{inpEditHolidayDescription.text}}
+WHERE holiday_id =
+    {{Number(selEditHoliday.selectedOptionValue)}}::BIGINT
+RETURNING
+    holiday_id,
+    holiday_name,
+    holiday_date,
+    description;

@@ -1,0 +1,2 @@
+SELECT
+    {{txtManagerComment.text || 'EMPTY'}} AS entered_comment;

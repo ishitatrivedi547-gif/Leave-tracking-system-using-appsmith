@@ -1,0 +1,72 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 16,
+  "boxShadow": "none",
+  "defaultOptionValue": "all",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "onOptionChange"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "qjxorndkkn",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Filter by Status",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 280,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 273,
+  "needsErrorInfo": false,
+  "onOptionChange": "{{q_hr_get_all_leave_requests.run()}}",
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 491,
+  "originalTopRow": 484,
+  "parentColumnSpace": 14.234375,
+  "parentId": "31oj5iy5l0",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "serverSideFiltering": false,
+  "sourceData": "{{\n  [\n    { label: \"All Requests\", value: \"All\" },\n    { label: \"Pending\", value: \"Pending\" },\n    { label: \"Approved\", value: \"Approved\" },\n    { label: \"Rejected\", value: \"Rejected\" },\n    { label: \"Cancelled\", value: \"Cancelled\" }\n  ]\n}}",
+  "topRow": 9,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "ls0lqe3q8e",
+  "widgetName": "selHRRequestStatus"
+}

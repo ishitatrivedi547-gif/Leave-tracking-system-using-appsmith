@@ -1,0 +1,7 @@
+SELECT
+    COUNT(*) AS unread_count
+FROM public.notifications n
+JOIN public.employees e
+    ON e.employee_id = n.employee_id
+WHERE e.employee_code = 'EMP001'
+  AND n.is_read = FALSE;

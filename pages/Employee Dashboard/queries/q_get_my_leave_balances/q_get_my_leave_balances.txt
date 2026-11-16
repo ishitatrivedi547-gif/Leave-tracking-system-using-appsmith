@@ -1,0 +1,22 @@
+
+SELECT
+    lt.leave_type_name,
+    lb.leave_year,
+    lb.entitled_days,
+    lb.carried_forward_days,
+    lb.used_days,
+    lb.pending_days,
+    (
+        lb.entitled_days
+        + lb.carried_forward_days
+        - lb.used_days
+        - lb.pending_days
+    ) AS available_days
+FROM leave_balances lb
+JOIN employees e
+    ON lb.employee_id = e.employee_id
+JOIN leave_types lt
+    ON lb.leave_type_id = lt.leave_type_id
+WHERE e.employee_code = 'EMP001'
+  AND lb.leave_year = EXTRACT(YEAR FROM CURRENT_DATE)::INTEGER
+ORDER BY lt.leave_type_id;

@@ -1,0 +1,22 @@
+
+SELECT
+    e.employee_code,
+    e.full_name,
+    lt.leave_type_name,
+    lb.leave_year,
+    lb.entitled_days,
+    lb.carried_forward_days,
+    lb.used_days,
+    lb.pending_days,
+    (
+        lb.entitled_days
+        + lb.carried_forward_days
+        - lb.used_days
+        - lb.pending_days
+    ) AS available_days
+FROM leave_balances lb
+JOIN employees e
+    ON lb.employee_id = e.employee_id
+JOIN leave_types lt
+    ON lb.leave_type_id = lt.leave_type_id
+ORDER BY e.employee_code, lt.leave_type_id;

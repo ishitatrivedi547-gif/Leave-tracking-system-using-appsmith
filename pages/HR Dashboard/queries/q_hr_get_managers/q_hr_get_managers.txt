@@ -1,0 +1,11 @@
+
+SELECT
+    e.employee_id,
+    e.employee_code,
+    e.full_name
+FROM public.employees e
+JOIN public.roles r
+    ON r.role_id = e.role_id
+WHERE r.role_name = 'Manager'
+  AND e.active = TRUE
+ORDER BY e.full_name;

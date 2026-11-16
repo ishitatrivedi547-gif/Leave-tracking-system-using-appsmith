@@ -1,0 +1,6 @@
+SELECT
+    status,
+    COUNT(*) AS total_requests
+FROM public.leave_requests
+GROUP BY status
+ORDER BY status;

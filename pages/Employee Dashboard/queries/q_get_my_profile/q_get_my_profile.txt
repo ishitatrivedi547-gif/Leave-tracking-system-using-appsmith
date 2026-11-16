@@ -1,0 +1,17 @@
+
+SELECT
+    e.employee_id,
+    e.employee_code,
+    e.full_name,
+    e.email,
+    e.department,
+    e.designation,
+    r.role_name,
+    m.full_name AS manager_name
+FROM employees e
+JOIN roles r
+    ON e.role_id = r.role_id
+LEFT JOIN employees m
+    ON e.manager_id = m.employee_id
+WHERE e.employee_code = 'EMP001'
+  AND e.active = TRUE;

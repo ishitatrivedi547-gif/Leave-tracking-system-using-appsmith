@@ -1,0 +1,27 @@
+SELECT
+    lr.request_id,
+    e.employee_code,
+    e.full_name,
+    lr.status AS request_status,
+    lr.requested_days,
+    lt.leave_type_name,
+    lb.pending_days,
+    lb.used_days,
+    la.approval_id,
+    la.decision AS manager_decision,
+    la.approval_level
+FROM public.leave_requests lr
+JOIN public.employees e
+    ON e.employee_id = lr.employee_id
+JOIN public.leave_types lt
+    ON lt.leave_type_id = lr.leave_type_id
+LEFT JOIN public.leave_balances lb
+    ON lb.employee_id = lr.employee_id
+   AND lb.leave_type_id = lr.leave_type_id
+   AND lb.leave_year = EXTRACT(YEAR FROM lr.start_date)::INTEGER
+LEFT JOIN public.leave_approvals la
+    ON la.request_id = lr.request_id
+   AND la.approver_id = e.manager_id
+   AND la.approval_level = 'Manager'
+WHERE lr.request_id =
+    {{Number(tblManagerPendingRequests.selectedRow.request_id)}}::BIGINT;

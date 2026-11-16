@@ -1,0 +1,17 @@
+
+SELECT
+    lr.request_id,
+    lt.leave_type_name,
+    lr.start_date,
+    lr.end_date,
+    lr.requested_days,
+    lr.reason,
+    lr.status,
+    lr.submitted_at
+FROM leave_requests lr
+JOIN employees e
+    ON lr.employee_id = e.employee_id
+JOIN leave_types lt
+    ON lr.leave_type_id = lt.leave_type_id
+WHERE e.employee_code = 'EMP001'
+ORDER BY lr.submitted_at DESC;

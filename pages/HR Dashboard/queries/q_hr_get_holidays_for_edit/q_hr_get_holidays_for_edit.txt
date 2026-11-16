@@ -1,0 +1,6 @@
+SELECT
+    holiday_id,
+    holiday_name,
+    holiday_date
+FROM public.holidays
+ORDER BY holiday_date ASC;

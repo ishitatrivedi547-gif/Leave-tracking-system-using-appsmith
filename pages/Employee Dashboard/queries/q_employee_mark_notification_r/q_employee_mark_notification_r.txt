@@ -1,0 +1,9 @@
+UPDATE public.notifications
+SET is_read = TRUE
+WHERE notification_id =
+    {{Number(tblEmployeeNotifications.selectedRow.notification_id)}}
+AND employee_id = (
+    SELECT employee_id
+    FROM public.employees
+    WHERE employee_code = 'EMP001'
+);

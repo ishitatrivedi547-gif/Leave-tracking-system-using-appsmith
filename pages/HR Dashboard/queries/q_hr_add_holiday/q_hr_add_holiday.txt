@@ -1,0 +1,15 @@
+INSERT INTO public.holidays (
+    holiday_name,
+    holiday_date,
+    description
+)
+VALUES (
+    {{inpHolidayName.text}},
+    {{moment(dpHolidayDate.selectedDate).format("YYYY-MM-DD")}}::DATE,
+    {{inpHolidayDescription.text}}
+)
+RETURNING
+    holiday_id,
+    holiday_name,
+    holiday_date,
+    description;

@@ -1,0 +1,52 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "c4pxgz2oka",
+  "leftColumn": 45,
+  "minWidth": 120,
+  "mobileBottomRow": 27,
+  "mobileLeftColumn": 45,
+  "mobileRightColumn": 61,
+  "mobileTopRow": 23,
+  "needsErrorInfo": false,
+  "onClick": "{{q_hr_update_holiday.run().then(() => {\n  showAlert('Holiday updated successfully!', 'success');\n  resetWidget(\"selEditHoliday\", true);\n  resetWidget(\"inpEditHolidayName\", true);\n  resetWidget(\"dpEditHolidayDate\", true);\n  resetWidget(\"inpEditHolidayDescription\", true);\n});\nq_hr_get_holidays.run();\nq_hr_get_holidays_for_edit.run();}}",
+  "originalBottomRow": 27,
+  "originalTopRow": 23,
+  "parentColumnSpace": 13.609375,
+  "parentId": "18sesx15jv",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "text": "Update Holiday",
+  "topRow": 23,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "p220h0perz",
+  "widgetName": "btnUpdateHoliday"
+}

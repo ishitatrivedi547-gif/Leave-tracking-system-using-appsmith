@@ -1,0 +1,30 @@
+
+INSERT INTO public.employees (
+    employee_code,
+    full_name,
+    email,
+    role_id,
+    manager_id,
+    department,
+    designation,
+    joining_date,
+    active
+)
+VALUES (
+    {{inpEmployeeCode.text}},
+    {{inpFullName.text}},
+    {{inpEmployeeEmail.text}},
+    {{selEmployeeRole.selectedOptionValue}}::BIGINT,
+    {{selReportingManager.selectedOptionValue || null}}::BIGINT,
+    {{inpDepartment.text}},
+    {{inpDesignation.text}},
+    {{dpJoiningDate.selectedDate.split('T')[0]}}::DATE,
+    TRUE
+)
+RETURNING
+    employee_id,
+    employee_code,
+    full_name,
+    email,
+    role_id,
+    active;

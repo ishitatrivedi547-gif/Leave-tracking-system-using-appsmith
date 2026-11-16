@@ -1,0 +1,8 @@
+
+SELECT
+    employee_id,
+    employee_code,
+    full_name
+FROM public.employees
+WHERE active = TRUE
+ORDER BY full_name;

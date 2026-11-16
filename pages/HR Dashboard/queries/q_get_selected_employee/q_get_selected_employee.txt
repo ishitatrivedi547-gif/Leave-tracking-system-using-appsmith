@@ -1,0 +1,7 @@
+SELECT
+    employee_id,
+    employee_code,
+    full_name,
+    joining_date
+FROM public.employees
+WHERE employee_id = {{ Number(selEditEmployee.selectedOptionValue) }}::BIGINT;

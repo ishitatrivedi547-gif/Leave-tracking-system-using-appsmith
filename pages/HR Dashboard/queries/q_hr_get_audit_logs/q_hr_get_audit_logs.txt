@@ -1,0 +1,14 @@
+SELECT
+    a.audit_id,
+    a.employee_id,
+    e.employee_code,
+    e.full_name AS employee_name,
+    a.action,
+    a.entity_name,
+    a.entity_id,
+    a.details,
+    a.created_at
+FROM public.audit_logs a
+LEFT JOIN public.employees e
+    ON e.employee_id = a.employee_id
+ORDER BY a.created_at DESC;

@@ -1,0 +1,8 @@
+SELECT
+    holiday_id,
+    holiday_name,
+    holiday_date,
+    description
+FROM public.holidays
+WHERE holiday_id =
+    {{Number(selEditHoliday.selectedOptionValue)}}::BIGINT;

@@ -1,0 +1,57 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 39,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "xzk6jog9ki",
+  "leftColumn": 51,
+  "minWidth": 120,
+  "mobileBottomRow": 207,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 3,
+  "mobileTopRow": 203,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  q_hr_update_leave_policy.run()\n    .then(() => {\n      showAlert(\n        \"Leave policy updated successfully.\",\n        \"success\"\n      );\n\n      return Promise.all([\n        q_hr_get_leave_policies.run(),\n        q_hr_get_leave_policy_by_id.run()\n      ]);\n    })\n    .catch(error => {\n      showAlert(\n        error.message || \"Unable to update leave policy.\",\n        \"error\"\n      );\n    })\n}}",
+  "originalBottomRow": 39,
+  "originalTopRow": 35,
+  "parentColumnSpace": 14.234375,
+  "parentId": "8p7gy0oojt",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Update Leave Policy",
+  "topRow": 35,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "f91mf3fopn",
+  "widgetName": "btnUpdateLeavePolicy"
+}

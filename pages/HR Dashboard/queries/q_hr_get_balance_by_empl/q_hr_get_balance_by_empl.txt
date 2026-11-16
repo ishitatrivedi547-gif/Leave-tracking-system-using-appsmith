@@ -1,0 +1,29 @@
+SELECT
+    lb.balance_id,
+    lb.employee_id,
+    e.employee_code,
+    e.full_name,
+    lb.leave_type_id,
+    lt.leave_type_name,
+    lb.leave_year,
+    lb.entitled_days,
+    lb.carried_forward_days,
+    lb.used_days,
+    lb.pending_days,
+    (
+        lb.entitled_days
+        + lb.carried_forward_days
+        - lb.used_days
+        - lb.pending_days
+    ) AS available_days
+FROM public.leave_balances lb
+JOIN public.employees e
+    ON e.employee_id = lb.employee_id
+JOIN public.leave_types lt
+    ON lt.leave_type_id = lb.leave_type_id
+WHERE lb.employee_id =
+    {{Number(selBalanceEmployee.selectedOptionValue)}}::BIGINT
+AND lb.leave_type_id =
+    {{Number(selBalanceLeaveType.selectedOptionValue)}}::BIGINT
+AND lb.leave_year =
+    {{Number(inpBalanceYear.text)}}::INTEGER;

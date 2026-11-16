@@ -1,0 +1,18 @@
+
+SELECT
+    e.employee_id,
+    e.employee_code,
+    e.full_name,
+    e.email,
+    r.role_name,
+    e.department,
+    e.designation,
+    m.full_name AS manager_name,
+    e.joining_date,
+    e.active
+FROM employees e
+JOIN roles r
+    ON e.role_id = r.role_id
+LEFT JOIN employees m
+    ON e.manager_id = m.employee_id
+ORDER BY e.employee_id;

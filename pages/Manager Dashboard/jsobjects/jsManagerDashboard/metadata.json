@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "6af63799469f202cddced6a8_1efe2b1e-5322-4ec3-9c05-f8afeea2c1f1",
+  "id": "Manager Dashboard_jsManagerDashboard",
+  "unpublishedCollection": {
+    "name": "jsManagerDashboard",
+    "pageId": "Manager Dashboard",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

@@ -1,0 +1,41 @@
+UPDATE public.employees
+SET
+    full_name = {{inpEditFullName.text}},
+    email = {{inpEditEmail.text}},
+
+    role_id = {{Number(selEditRole.selectedOptionValue)}}::BIGINT,
+
+    manager_id = CASE
+    WHEN (
+        SELECT role_name
+        FROM public.roles
+        WHERE role_id = {{Number(selEditRole.selectedOptionValue)}}::BIGINT
+    ) = 'Employee'
+    THEN {{Number(selEditReportingManager.selectedOptionValue)}}::BIGINT
+    ELSE NULL
+END,
+
+    department = {{inpEditDepartment.text}},
+    designation = {{inpEditDesignation.text}},
+
+    joining_date = {{
+        moment(
+            dpEditJoiningDate.selectedDate ||
+            q_hr_get_employee_by_id.data?.[0]?.joining_date
+        ).format("YYYY-MM-DD")
+    }}::DATE
+
+WHERE employee_id =
+    {{Number(selEditEmployee.selectedOptionValue)}}::BIGINT
+
+RETURNING
+    employee_id,
+    employee_code,
+    full_name,
+    email,
+    role_id,
+    manager_id,
+    department,
+    designation,
+    joining_date,
+    active;

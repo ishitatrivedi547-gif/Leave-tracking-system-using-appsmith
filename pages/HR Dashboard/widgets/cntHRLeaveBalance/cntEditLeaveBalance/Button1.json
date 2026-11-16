@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 33,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "3y7wtb03oh",
+  "leftColumn": 29,
+  "minWidth": 120,
+  "mobileBottomRow": 33,
+  "mobileLeftColumn": 29,
+  "mobileRightColumn": 45,
+  "mobileTopRow": 29,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  q_hr_get_balance_by_employee_t.run()\n    .then(() => {\n      resetWidget(\"inpBalanceEntitled\");\n      resetWidget(\"inpBalanceCarryForward\");\n      showAlert(\"Leave balance form reset successfully.\", \"success\");\n    })\n    .catch(error => {\n      showAlert(error.message || \"Unable to reset leave balance.\", \"error\");\n    })\n}}",
+  "parentColumnSpace": 13.921875,
+  "parentId": "mqe1uotr1d",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 45,
+  "text": "Reset",
+  "topRow": 29,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "6n5pcm88o0",
+  "widgetName": "Button1"
+}

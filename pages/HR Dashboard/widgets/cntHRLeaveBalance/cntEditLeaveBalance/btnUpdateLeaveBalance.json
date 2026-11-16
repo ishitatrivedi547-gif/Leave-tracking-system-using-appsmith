@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 33,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "3y7wtb03oh",
+  "leftColumn": 46,
+  "minWidth": 120,
+  "mobileBottomRow": 33,
+  "mobileLeftColumn": 46,
+  "mobileRightColumn": 62,
+  "mobileTopRow": 29,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  !selBalanceEmployee.selectedOptionValue ||\n  !selBalanceLeaveType.selectedOptionValue ||\n  !inpBalanceYear.text ||\n  inpBalanceEntitled.text === \"\" ||\n  inpBalanceCarryForward.text === \"\" ||\n  Number(inpBalanceEntitled.text) < 0 ||\n  Number(inpBalanceCarryForward.text) < 0\n    ? showAlert(\"Please enter valid employee, leave type, year and balance values.\", \"warning\")\n    : q_hr_update_leave_balance.run()\n        .then(data => {\n          if (!data || data.length === 0) {\n            showAlert(\"Update not applied. Check the balance values and existing used or pending days.\", \"warning\");\n            return;\n          }\n\n          showAlert(\"Leave balance updated successfully.\", \"success\");\n\n          return Promise.all([\n            q_hr_get_balance_by_employee_t.run(),\n            q_hr_get_leave_balances.run()\n          ]);\n        })\n        .catch(error => {\n          showAlert(error.message || \"Unable to update leave balance.\", \"error\");\n        })\n}}",
+  "parentColumnSpace": 13.921875,
+  "parentId": "mqe1uotr1d",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "text": "Update Leave Balance",
+  "topRow": 29,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "ys00283dk6",
+  "widgetName": "btnUpdateLeaveBalance"
+}

@@ -1,0 +1,57 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "buttonColor": "#22c55e",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{!tblManagerPendingRequests.selectedRow.request_id}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "fy2pt1egzu",
+  "leftColumn": 32,
+  "minWidth": 120,
+  "mobileBottomRow": 17,
+  "mobileLeftColumn": 30,
+  "mobileRightColumn": 46,
+  "mobileTopRow": 13,
+  "needsErrorInfo": false,
+  "onClick": "{{q_manager_approve_leave.run().then(() => {});\nq_manager_get_pending_requests.run();\nq_hr_get_notifications.run();\nq_hr_get_audit_logs.run();\nshowAlert('Leave request approved successfully!', 'success');}}",
+  "originalBottomRow": 27,
+  "originalTopRow": 23,
+  "parentColumnSpace": 13.609375,
+  "parentId": "sfmxuq0vmu",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": true,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Approve Leave",
+  "topRow": 23,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "pvmzk8pvh6",
+  "widgetName": "btnManagerApprove"
+}

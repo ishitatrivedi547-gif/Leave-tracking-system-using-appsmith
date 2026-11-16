@@ -1,0 +1,15 @@
+
+SELECT
+    lp.policy_id,
+    lt.leave_type_name,
+    lp.entitlement_days,
+    lp.carry_forward_limit,
+    lp.requires_document_after_days,
+    lp.max_consecutive_days,
+    lp.effective_from,
+    lp.effective_to,
+    lp.active
+FROM leave_policies lp
+JOIN leave_types lt
+    ON lp.leave_type_id = lt.leave_type_id
+ORDER BY lt.leave_type_id;

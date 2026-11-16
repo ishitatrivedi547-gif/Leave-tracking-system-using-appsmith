@@ -1,0 +1,12 @@
+UPDATE public.employees
+SET active = FALSE
+WHERE employee_id =
+    {{Number(selEditEmployee.selectedOptionValue)}}::BIGINT
+AND active = TRUE
+AND NOT EXISTS (
+    SELECT 1
+    FROM public.leave_requests lr
+    WHERE lr.employee_id = employees.employee_id
+      AND lr.status = 'Pending'
+)
+RETURNING employee_id, employee_code, full_name, active;

@@ -1,0 +1,18 @@
+UPDATE public.leave_balances
+SET
+    entitled_days = {{Number(inpBalanceEntitled.text)}}::INTEGER,
+    carried_forward_days = {{Number(inpBalanceCarryForward.text)}}::INTEGER,
+    updated_at = CURRENT_TIMESTAMP
+WHERE employee_id =
+    {{Number(selBalanceEmployee.selectedOptionValue)}}::BIGINT
+AND leave_type_id =
+    {{Number(selBalanceLeaveType.selectedOptionValue)}}::BIGINT
+AND leave_year =
+    {{Number(inpBalanceYear.text)}}::INTEGER
+AND {{Number(inpBalanceEntitled.text)}} >= 0
+AND {{Number(inpBalanceCarryForward.text)}} >= 0
+AND (
+    {{Number(inpBalanceEntitled.text)}}
+    + {{Number(inpBalanceCarryForward.text)}}
+) >= (used_days + pending_days)
+RETURNING *;

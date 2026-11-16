@@ -1,0 +1,8 @@
+SELECT
+    lt.leave_type_name,
+    COUNT(lr.request_id) AS total_requests
+FROM public.leave_requests lr
+JOIN public.leave_types lt
+    ON lt.leave_type_id = lr.leave_type_id
+GROUP BY lt.leave_type_name
+ORDER BY lt.leave_type_name;

@@ -1,0 +1,16 @@
+
+SELECT
+    e.employee_id,
+    e.employee_code,
+    e.full_name,
+    e.email,
+    e.role_id,
+    e.manager_id,
+    e.department,
+    e.designation,
+    e.joining_date,
+    e.active
+FROM public.employees e
+WHERE e.employee_id =
+    {{selEditEmployee.selectedOptionValue}}::BIGINT
+  AND e.active = TRUE;

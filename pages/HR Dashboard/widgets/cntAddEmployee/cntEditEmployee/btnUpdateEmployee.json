@@ -1,0 +1,57 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 43,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "xzk6jog9ki",
+  "leftColumn": 49,
+  "minWidth": 120,
+  "mobileBottomRow": 43,
+  "mobileLeftColumn": 49,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 39,
+  "needsErrorInfo": false,
+  "onClick": "{{q_hr_update_employee.run()\n  .then(() => {\n    showAlert(\"Employee details updated successfully.\", \"success\");\n    return Promise.all([\n      q_hr_get_employees.run(),\n      q_hr_get_employee_by_id.run(),\n      q_hr_get_leave_balances.run()\n    ]);\n  })\n  .catch(error => {\n    showAlert(error.message || \"Unable to update employee.\", \"error\");\n  })\n}}",
+  "originalBottomRow": 46,
+  "originalTopRow": 42,
+  "parentColumnSpace": 13.90625,
+  "parentId": "iwpsik39zk",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Update Employee",
+  "topRow": 39,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "t59wgosi88",
+  "widgetName": "btnUpdateEmployee"
+}
